@@ -1,8 +1,7 @@
-import * as express from 'express';
-import
+
 
 var createError = require('http-errors');
-// var express = require('express');
+var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var lessMiddleware = require('less-middleware');
