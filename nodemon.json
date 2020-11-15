@@ -1,7 +1,8 @@
 {
     "watch": [
         "src",
-        "routes"
+        "routes",
+        "controllers"
     ],
     "ext": "ts",
     "ignore": [

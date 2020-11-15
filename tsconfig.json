@@ -5,7 +5,9 @@
         "module": "commonjs",
         "target": "es5",
         "moduleResolution": "node",
-        "removeComments": true
+        "removeComments": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
     },
     "include": [
         "./src/**/*"
