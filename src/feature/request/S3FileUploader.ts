@@ -5,8 +5,8 @@ import * as Express from 'express';
 export class S3FileUploader {
 
     public upload(req: Express.Request, res: Express.Response, next: Express.NextFunction) {
-        const bucketName = 'node-sdk-sample-' + uuid.v4();
-        const keyName = 'hello-world.txt';
+        const bucketName = 'transcribe-target';
+        const keyName = uuid.v4();
 
         const bucketPromise = new S3({ apiVersion : '2006-03-01' })
             .createBucket({ Bucket : bucketName })

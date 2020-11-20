@@ -1,7 +1,7 @@
 import * as express from 'express';
 import * as BodyParser from 'body-parser';
 import upload from '../routes/upload';
-import expressListEndpoints from 'express-list-endpoints';
+import * as expressListEndpoints from 'express-list-endpoints';
 import notImpl from '../routes/upload';
 import { createExpressServer } from 'routing-controllers';
 import { S3AccessController } from './controllers/S3AccessController';
@@ -27,5 +27,15 @@ application.get('/', (req, res) => res.send('Hello World!'));
 
 application.listen(port, () => {
     console.log(`app listening on port ${ port }!`);
-    // console.log(expressListEndpoints(application));
+    const endPoints: Array<ApplicationEndPoint> = expressListEndpoints(application);
+    const paths = endPoints.map(endpoint => endpoint.path);
+    console.log(paths);
+
 });
+
+
+interface ApplicationEndPoint {
+    path: string;
+    method: Array<string>;
+    middleware: Array<string>;
+}
