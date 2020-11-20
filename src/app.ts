@@ -30,7 +30,9 @@ application.listen(port, () => {
     const endPoints: Array<ApplicationEndPoint> = expressListEndpoints(application);
     const paths = endPoints.map(endpoint => endpoint.path);
     console.log(paths);
+
 });
+
 
 interface ApplicationEndPoint {
     path: string;
