@@ -1,5 +1,5 @@
 import * as Express from 'express';
-import { Get, JsonController, Put } from 'routing-controllers';
+import { Get, JsonController, Post, Put } from 'routing-controllers';
 import { S3FileUploader } from '../feature/request/S3FileUploader';
 import { request } from 'express';
 
@@ -21,9 +21,8 @@ export class S3AccessController {
         return '3343fjoaeprw@56';
     }
 
-    @Get('/upload')
+    @Post('/upload')
     put(req: Express.Request, res: Express.Response, next: Express.NextFunction) {
         this.fileUploader.upload(req, res, next);
-
     }
 }
