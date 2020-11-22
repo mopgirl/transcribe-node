@@ -22,7 +22,6 @@ export class S3FileUploader {
                     function(data) {
                         console.log('Successfully uploaded data to ' + bucketName + '/' + keyName);
                     });
-
             }
         ).catch((err => {
             console.error(err, err.stack);

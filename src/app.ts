@@ -25,12 +25,26 @@ application.get('/', (req, res) => res.send('Hello World!'));
 // app.use('/users', usersRouter);
 // app.use('/s3', upload);
 
+const allowCrossDomain = function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+};
+application.use(allowCrossDomain);
 application.listen(port, () => {
     console.log(`app listening on port ${ port }!`);
     const endPoints: Array<ApplicationEndPoint> = expressListEndpoints(application);
     const paths = endPoints.map(endpoint => endpoint.path);
     console.log(paths);
-
 });
 
 
